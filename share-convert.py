@@ -2,6 +2,7 @@ import os
 from flask import Flask, send_from_directory, render_template, request, flash
 
 app = Flask(__name__)
+app.secret_key = 'some_secret'
 
 
 @app.route("/")
@@ -21,8 +22,8 @@ def upload():
     if request.method == 'POST':
         file = request.files['myfile']
         if file:
-            file.save('/tmp', 'tmp.csv')
-            flash("Processing File")
+            file.save('tmp/tmp.csv')
+            flash("Processing Files")
 
     return render_template('upload.html')
 
