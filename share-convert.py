@@ -1,5 +1,5 @@
 import os
-from flask import Flask, send_from_directory, render_template
+from flask import Flask, send_from_directory, render_template, request, flash
 
 app = Flask(__name__)
 
@@ -16,10 +16,15 @@ def favicon():
 def page_not_found(e):
     return render_template('404.html'), 404
 
-@app.route('/upload')
+@app.route('/upload', methods = ['GET', 'POST'])
 def upload():
-    return render_template('upload.html')
+    if request.method == 'POST':
+        file = request.files['myfile']
+        if file:
+            file.save('/tmp', 'tmp.csv')
+            flash("Processing File")
 
+    return render_template('upload.html')
 
 
 if __name__ == '__main__':
