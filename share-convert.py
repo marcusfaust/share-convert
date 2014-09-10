@@ -1,6 +1,6 @@
 import os
 from flask import Flask, send_from_directory, render_template, request, flash
-
+from uploadhandler import uploadedCSV
 app = Flask(__name__)
 app.secret_key = 'some_secret'
 
@@ -23,7 +23,8 @@ def upload():
         file = request.files['myfile']
         if file:
             file.save('tmp/tmp.csv')
-            flash("Processing Files")
+            tempfile = uploadedCSV(file)
+            flash('Processing Files')
 
     return render_template('upload.html')
 
