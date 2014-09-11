@@ -6,11 +6,10 @@ import csv, re
 
 class uploadedCSV(file):
 
-    paths = []
-    shares = []
-    sharescsv = ""
-
     def __init__(self, file):
+
+        self.paths = []
+        self.shares = []
 
         with open('tmp.csv', 'rU') as csvfile:
             sharescsv = csv.reader(csvfile, delimiter=',', escapechar="")
@@ -30,6 +29,8 @@ class uploadedCSV(file):
             currCmd = "server_export server_2 -Protocol cifs -name \"" + self.shares[int(self.paths.index(path))] + "\" -option netbios=" + server + " \"" + mountpoint + path + "\""
             cmds.append(currCmd)
             index += 1
+        self.shares = []
+        self.paths = []
         return cmds
 
 

@@ -17,7 +17,7 @@ def index():
             file.save('tmp.csv')
             tempfile = uploadedCSV(file)
             tempOutput = tempfile.outputCmds(server, mountpoint)
-            os.remove('tmp.csv')
+            del tempfile
 
             return render_template('output.html', tempOutput=tempOutput)
 
