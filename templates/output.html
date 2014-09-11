@@ -2,6 +2,9 @@
 {% block title %} - Home {% endblock %}
 {% block content %}
  <title>Output</title>
+ <u><h2>Processed {{ tempOutput|count }} Shares:</h2></u>
+    <p></p>
+    <p></p>
 {% for cmds in tempOutput %}
     <p>{{ cmds }}</p>
 {% endfor %}
