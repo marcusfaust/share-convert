@@ -2,5 +2,7 @@
 {% block title %} - Home {% endblock %}
 {% block content %}
  <title>Output</title>
-<p>{{ tempOutput }}</p>
+{% for cmds in tempOutput %}
+    <p>{{ cmds }}</p>
+{% endfor %}
 {% endblock %}
