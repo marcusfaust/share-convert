@@ -1,6 +1,8 @@
 import os
 from flask import Flask, send_from_directory, render_template, request, flash
 from uploadhandler import uploadedCSV
+
+
 app = Flask(__name__)
 app.secret_key = 'some_secret'
 
@@ -20,11 +22,14 @@ def page_not_found(e):
 @app.route('/upload', methods = ['GET', 'POST'])
 def upload():
     if request.method == 'POST':
-        file = request.files['myfile']
+        file = request.files['file']
+        server = request.form['server']
+        mountpoint = request.form['path']
         if file:
-            file.save('tmp/tmp.csv')
+            file.save('tmp.csv')
             tempfile = uploadedCSV(file)
-            flash('Processing Files')
+            tempOutput = tempfile.outputCmds(server, mountpoint)
+            return render_template('output.html')
 
     return render_template('upload.html')
 

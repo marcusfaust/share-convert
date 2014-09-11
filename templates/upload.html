@@ -3,23 +3,18 @@
 {% block content %}
 <form role="form">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+    <label for="server">CIFS Server Name</label>
+    <input type="text" class="form-control" id="server" name="server" placeholder="Enter CIFS Server Name">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="path">Filesystem Mountpoint</label>
+    <input type="text" class="form-control" id="path" name="path" placeholder="Enter Filesystem Mountpount (ie. /fs1)">
   </div>
   <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="myfile">
+    <label for="exampleInputFile">CSV File input</label>
+    <input type="file" id="file" name="file">
     <p class="help-block">Example block-level help text here.</p>
   </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
-    </label>
-  </div>
-  <button type="Submit CSV" class="btn btn-primary btn-lg">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% endblock %}
