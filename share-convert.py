@@ -18,7 +18,6 @@ def index():
             tempfile = uploadedCSV(file)
             tempOutput = tempfile.outputCmds(server, mountpoint)
             del tempfile
-
             return render_template('output.html', tempOutput=tempOutput)
 
     return render_template('upload.html')
