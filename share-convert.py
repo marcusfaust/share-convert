@@ -1,5 +1,5 @@
 import os
-from flask import Flask, send_from_directory, render_template, request, flash
+from flask import Flask, send_from_directory, render_template, request
 from uploadhandler import uploadedCSV
 
 
