@@ -24,7 +24,6 @@ class uploadedCSV(file):
     def outputCmds(self, server, mountpoint):
         cmds = []
         index = 0
-        currCmd = ""
         for path in self.paths:
             currCmd = "server_export server_2 -Protocol cifs -name \"" + self.shares[int(self.paths.index(path))] + "\" -option netbios=" + server + " \"" + mountpoint + path + "\""
             cmds.append(currCmd)
